@@ -26,11 +26,39 @@
         html {
             scroll-behavior: smooth;
         }
+        
+        /* Hover glow effects */
+        .glow-card {
+            transition: all 0.3s ease;
+        }
+        .glow-card:hover {
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.5), 0 0 60px rgba(147, 51, 234, 0.3);
+        }
+        
+        /* Particle canvas */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .content-layer {
+            position: relative;
+            z-index: 1;
+        }
     </style>
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
-<body class="bg-gray-50 font-poppins">
+<body class="bg-gray-50 font-poppins relative">
+    <!-- Particles Background -->
+    <div id="particles-js" class="fixed inset-0 opacity-30"></div>
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-md shadow-sm z-50 transition-all duration-300">
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-md shadow-sm z-50 transition-all duration-300 content-layer">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <a href="#home" class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -62,7 +90,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 text-white pt-16 overflow-hidden">
+    <section id="home" class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 text-white pt-24 md:pt-32 overflow-hidden content-layer">
         <!-- Background Decoration -->
         <div class="absolute inset-0 opacity-10">
             <svg class="absolute top-20 left-10 w-72 h-72" viewBox="0 0 200 200">
@@ -76,12 +104,17 @@
         </div>
         
         <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight mt-8">
                 The Role of AI-Driven Diagnostics in Modern Healthcare
             </h1>
             <p class="text-xl sm:text-2xl md:text-3xl mb-4 font-light opacity-90">
                 How artificial intelligence transforms medical diagnosis
             </p>
+
+            <!-- Hero Image -->
+            <div class="mt-8 flex justify-center">
+                <img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=800&q=80" alt="AI Healthcare Technology" class="rounded-2xl shadow-2xl max-w-md w-full h-auto border-4 border-white/20">
+            </div>
         </div>
         
         <!-- Wave Divider -->
@@ -93,10 +126,10 @@
     </section>
 
     <!-- Research Question Section -->
-    <section id="research" class="py-20 bg-gray-50">
+    <section id="research" class="py-20 bg-gray-50 content-layer">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Research Question Card -->
-            <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12 mb-8 transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+            <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12 mb-8 transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1 glow-card">
                 <div class="flex items-center mb-6">
                     <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center mr-4">
                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -113,7 +146,7 @@
             </div>
             
             <!-- Thesis Statement Card -->
-            <div class="bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl shadow-lg p-8 md:p-12 text-white transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+            <div class="bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl shadow-lg p-8 md:p-12 text-white transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1 glow-card">
                 <div class="flex items-center mb-6">
                     <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mr-4 backdrop-blur-sm">
                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -132,7 +165,7 @@
     </section>
 
     <!-- Main Points Section -->
-    <section id="points" class="py-20 bg-white">
+    <section id="points" class="py-20 bg-white content-layer">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 Key Findings
@@ -142,7 +175,7 @@
             <div class="mb-20">
                 <div class="grid md:grid-cols-2 gap-8 items-center">
                     <div class="order-2 md:order-1">
-                        <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 md:p-12 shadow-lg h-full">
+                        <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 md:p-12 shadow-lg h-full glow-card">
                             <div class="flex items-center mb-6">
                                 <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
                                     <span class="text-2xl font-bold text-white">01</span>
@@ -201,7 +234,7 @@
                         </div>
                     </div>
                     <div class="order-1">
-                        <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-8 md:p-12 shadow-lg h-full">
+                        <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-8 md:p-12 shadow-lg h-full glow-card">
                             <div class="flex items-center mb-6">
                                 <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
                                     <span class="text-2xl font-bold text-white">02</span>
@@ -236,11 +269,71 @@
                 </div>
             </div>
 
+            <!-- Watch This - Media Section -->
+            <div class="mb-20">
+                <div class="max-w-5xl mx-auto">
+                    <div class="bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 rounded-3xl p-8 md:p-12 shadow-2xl glow-card overflow-hidden relative">
+                        <!-- Background Image -->
+                        <div class="absolute inset-0 opacity-10">
+                            <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1200&q=80" alt="AI Healthcare" class="w-full h-full object-cover">
+                        </div>
+                        
+                        <div class="relative z-10">
+                            <div class="flex items-center justify-center mb-6">
+                                <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mr-4">
+                                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                                <h2 class="text-3xl md:text-4xl font-bold text-white">
+                                    Watch This
+                                </h2>
+                            </div>
+                            
+                            <p class="text-lg md:text-xl text-white/90 text-center mb-8 max-w-2xl mx-auto">
+                                Check this American Medical Association video on AI in healthcare.
+                            </p>
+                            
+                            <div class="relative w-full rounded-2xl overflow-hidden shadow-2xl group cursor-pointer" style="padding-bottom: 56.25%;">
+                                <a href="https://www.youtube.com/watch?v=R6cccd-8COg" target="_blank" rel="noopener noreferrer" class="absolute inset-0 w-full h-full">
+                                    <!-- YouTube Thumbnail -->
+                                    <img 
+                                        src="https://img.youtube.com/vi/R6cccd-8COg/maxresdefault.jpg" 
+                                        alt="AI in Healthcare - American Medical Association"
+                                        class="w-full h-full object-cover"
+                                        onerror="this.src='https://img.youtube.com/vi/R6cccd-8COg/hqdefault.jpg'"
+                                    >
+                                    <!-- Play Button Overlay -->
+                                    <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-all duration-300">
+                                        <div class="w-20 h-20 md:w-24 md:h-24 bg-red-600 rounded-full flex items-center justify-center shadow-2xl transform group-hover:scale-110 transition-transform duration-300">
+                                            <svg class="w-10 h-10 md:w-12 md:h-12 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M8 5v14l11-7z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <!-- YouTube Badge -->
+                                    <div class="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-lg text-sm font-semibold flex items-center">
+                                        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                        </svg>
+                                        YouTube
+                                    </div>
+                                </a>
+                            </div>
+                            <p class="mt-4 text-sm text-white/70 text-center">
+                                Click the video thumbnail to watch on YouTube
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Point 3 -->
             <div class="mb-20">
                 <div class="grid md:grid-cols-2 gap-8 items-center">
                     <div class="order-2 md:order-1">
-                        <div class="bg-gradient-to-br from-indigo-50 to-cyan-50 rounded-3xl p-8 md:p-12 shadow-lg h-full">
+                        <div class="bg-gradient-to-br from-indigo-50 to-cyan-50 rounded-3xl p-8 md:p-12 shadow-lg h-full glow-card">
                             <div class="flex items-center mb-6">
                                 <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-cyan-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
                                     <span class="text-2xl font-bold text-white">03</span>
@@ -288,9 +381,9 @@
     </section>
 
     <!-- Conclusion Section -->
-    <section id="conclusion" class="py-20 bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 text-white">
+    <section id="conclusion" class="py-20 bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 text-white content-layer">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-white/10 backdrop-blur-md rounded-3xl p-8 md:p-12 border border-white/20 shadow-2xl">
+            <div class="bg-white/10 backdrop-blur-md rounded-3xl p-8 md:p-12 border border-white/20 shadow-2xl glow-card">
                 <div class="flex items-center justify-center mb-8">
                     <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -309,23 +402,23 @@
     </section>
 
     <!-- References Section -->
-    <section id="references" class="py-20 bg-gray-50">
+    <section id="references" class="py-20 bg-gray-50 content-layer">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 Works Cited
             </h2>
             <div class="space-y-4">
-                <div class="bg-white rounded-xl p-6 shadow-md border-l-4 border-blue-500 hover:shadow-lg transition-shadow">
+                <div class="bg-white rounded-xl p-6 shadow-md border-l-4 border-blue-500 hover:shadow-lg transition-all glow-card">
                     <p class="text-gray-700 leading-relaxed">
                         Hosny, Ahmed, et al. "Artificial Intelligence in Radiology." <em>Nature Reviews Cancer</em>, vol. 18, May 2018, pp. 500–510. Nature, www.nature.com/articles/s41568-018-0016-5.
                     </p>
                 </div>
-                <div class="bg-white rounded-xl p-6 shadow-md border-l-4 border-purple-500 hover:shadow-lg transition-shadow">
+                <div class="bg-white rounded-xl p-6 shadow-md border-l-4 border-purple-500 hover:shadow-lg transition-all glow-card">
                     <p class="text-gray-700 leading-relaxed">
                         Rajpurkar, Pranav, et al. "AI in Health and Medicine." <em>Nature Medicine</em>, vol. 28, Jan. 2022, pp. 31–38. Nature, www.nature.com/articles/s41591-021-01614-0.
                     </p>
                 </div>
-                <div class="bg-white rounded-xl p-6 shadow-md border-l-4 border-indigo-500 hover:shadow-lg transition-shadow">
+                <div class="bg-white rounded-xl p-6 shadow-md border-l-4 border-indigo-500 hover:shadow-lg transition-all glow-card">
                     <p class="text-gray-700 leading-relaxed">
                         Topol, Eric J. "High-Performance Medicine: The Convergence of Human and Artificial Intelligence." <em>Nature Medicine</em>, vol. 25, Jan. 2019, pp. 44–56. Nature, www.nature.com/articles/s41591-018-0300-7.
                     </p>
@@ -335,7 +428,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-8">
+    <footer class="bg-gray-900 text-white py-8 content-layer">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <p class="text-gray-400">
                 &copy; 2025 Tayyaba Imam | ENGLI-1101 | Digital Project
@@ -401,6 +494,112 @@
             card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(card);
         });
+
+        // Initialize Particles.js
+        if (typeof particlesJS !== 'undefined') {
+            particlesJS('particles-js', {
+                particles: {
+                    number: {
+                        value: 50,
+                        density: {
+                            enable: true,
+                            value_area: 800
+                        }
+                    },
+                    color: {
+                        value: '#3b82f6'
+                    },
+                    shape: {
+                        type: 'circle',
+                        stroke: {
+                            width: 0,
+                            color: '#000000'
+                        }
+                    },
+                    opacity: {
+                        value: 0.3,
+                        random: true,
+                        anim: {
+                            enable: true,
+                            speed: 1,
+                            opacity_min: 0.1,
+                            sync: false
+                        }
+                    },
+                    size: {
+                        value: 3,
+                        random: true,
+                        anim: {
+                            enable: true,
+                            speed: 2,
+                            size_min: 0.1,
+                            sync: false
+                        }
+                    },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: '#6366f1',
+                        opacity: 0.2,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 1,
+                        direction: 'none',
+                        random: false,
+                        straight: false,
+                        out_mode: 'out',
+                        bounce: false,
+                        attract: {
+                            enable: false,
+                            rotateX: 600,
+                            rotateY: 1200
+                        }
+                    }
+                },
+                interactivity: {
+                    detect_on: 'canvas',
+                    events: {
+                        onhover: {
+                            enable: true,
+                            mode: 'repulse'
+                        },
+                        onclick: {
+                            enable: true,
+                            mode: 'push'
+                        },
+                        resize: true
+                    },
+                    modes: {
+                        grab: {
+                            distance: 400,
+                            line_linked: {
+                                opacity: 1
+                            }
+                        },
+                        bubble: {
+                            distance: 400,
+                            size: 40,
+                            duration: 2,
+                            opacity: 8,
+                            speed: 3
+                        },
+                        repulse: {
+                            distance: 200,
+                            duration: 0.4
+                        },
+                        push: {
+                            particles_nb: 4
+                        },
+                        remove: {
+                            particles_nb: 2
+                        }
+                    }
+                },
+                retina_detect: true
+            });
+        }
     </script>
 </body>
 </html>
